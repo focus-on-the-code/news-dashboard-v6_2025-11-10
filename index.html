@@ -1007,7 +1007,7 @@
     // Fetch articles.json & render all
     async function loadDashboardData() {
       try {
-        const resp = await fetch('https://drive.google.com/uc?export=download&id=1BlxE4hNtcyGK-G3MBeQqGdmNM6OWk5Ha');
+        const resp = await fetch('articles.json');
         dashboardData = await resp.json();
         // Render initial load (default: technology)
         tabOrder.forEach(tab => {
