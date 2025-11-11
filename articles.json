@@ -1,0 +1,350 @@
+{
+  "lastUpdated": "2025-11-11T06:17:12Z",
+  "articles": {
+    "science_research": [
+      {
+        "id": "sr1",
+        "headline": "AlphaEvolve: AI as a Research Partner in Theoretical Computer Science",
+        "summary": "Google DeepMind's AlphaEvolve system couples LLMs with automated reasoning to discover new mathematical gadgets for hardness-of-approximation proofs. The system found a 19-variable gadget improving MAX-4-CUT inapproximability to 0.987 after evaluating 250,000 model-generated candidates, demonstrating AI can become genuine research collaborator.",
+        "source": "Nathan Benaich Newsletter / Google DeepMind",
+        "publicationDate": "Nov 8, 2025",
+        "dateSort": "2025-11-08",
+        "articleUrl": "https://nathanbenaich.substack.com/p/state-of-ai-november-2025",
+        "actions": [
+          {
+            "action": "How can I use this?",
+            "description": "Deploy AI-assisted mathematical search in theoretical computer science research to generate novel proofs and hypotheses that human mathematicians can verify and build upon."
+          },
+          {
+            "action": "Research Collaboration",
+            "description": "Study how AlphaEvolve couples LLMs with formal verification tools to understand frameworks for AI-human collaborative research."
+          },
+          {
+            "action": "Algorithm Optimization",
+            "description": "Implement sigmoidal curve fitting and compute efficiency optimization based on this research for your own AI-assisted problem solving."
+          }
+        ]
+      },
+      {
+        "id": "sr2",
+        "headline": "UT Doubles Size of One of World's Most Powerful AI Computing Hubs",
+        "summary": "University of Texas at Austin's Center for Generative AI doubled computing capacity to over 1,000 advanced GPUs with $20M state funding. New infrastructure accelerates discoveries in biosciences, healthcare, computer vision and NLP for vaccines, medical imaging, personalized medicine.",
+        "source": "News - UT Austin",
+        "publicationDate": "Nov 9, 2025",
+        "dateSort": "2025-11-09",
+        "articleUrl": "https://news.utexas.edu/2025/11/09/ut-doubles-ai-computing/",
+        "actions": [
+          {
+            "action": "Academic Partnership",
+            "description": "Explore research collaboration opportunities with UT's Center for Generative AI for drug discovery, medical imaging or NLP projects."
+          },
+          {
+            "action": "Computing Infrastructure",
+            "description": "Study UT's GPU cluster scaling approach (1,000+ GPUs) as model for academic AI infrastructure investment decisions."
+          },
+          {
+            "action": "Open Source Impact",
+            "description": "Participate in UT's open-source AI and public domain research initiatives that democratize AI research access."
+          }
+        ]
+      },
+      {
+        "id": "sr3",
+        "headline": "AI in Life Sciences: Biology and Computation Converge to Transform Health",
+        "summary": "World Economic Forum article on AI's role in life sciences covering drug discovery acceleration, precision medicine via AI personal assistants, brain-computer interfaces for neural decoding, and synthetic biology's modular design. AI enables shift from reactive to predictive, personalized, preventive healthcare models.",
+        "source": "World Economic Forum",
+        "publicationDate": "Nov 7, 2025",
+        "dateSort": "2025-11-07",
+        "articleUrl": "https://www.weforum.org/agenda/2025/10/ai-life-sciences-health/",
+        "actions": [
+          {
+            "action": "Healthcare Strategy",
+            "description": "Plan clinical applications of AI in drug discovery, precision medicine and diagnostic support based on WEF analysis of emerging capabilities."
+          },
+          {
+            "action": "Ethical Considerations",
+            "description": "Review AI ethics frameworks for healthcare as these life science applications raise profound questions about responsibility and access."
+          },
+          {
+            "action": "Multimodal Integration",
+            "description": "Explore how AI combines DNA, protein analysis and patient data in new healthcare delivery models."
+          }
+        ]
+      },
+      {
+        "id": "sr4",
+        "headline": "The Art of Scaling Reinforcement Learning for LLMs: 400,000 GPU-Hours of Research",
+        "summary": "Meta AI, UT Austin, UCL, UC Berkeley and Harvard study identifies how design choices affect RL fine-tuning efficiency. After 400,000 GPU-hours, researchers show loss aggregation, normalization, curriculum design and off-policy algorithms influence compute efficiency without affecting asymptotic performance.",
+        "source": "Nathan Benaich Newsletter - Meta AI Research",
+        "publicationDate": "Nov 8, 2025",
+        "dateSort": "2025-11-08",
+        "articleUrl": "https://nathanbenaich.substack.com/p/state-of-ai-november-2025",
+        "actions": [
+          {
+            "action": "Compute Optimization",
+            "description": "Apply ScaleRL recipe and sigmoidal compute-performance curves to predict validation accuracy and optimize RL fine-tuning costs at scale."
+          },
+          {
+            "action": "Model Alignment",
+            "description": "Use RL scaling laws to improve LLM alignment efficiency, making safety fine-tuning more cost-effective for your applications."
+          },
+          {
+            "action": "Research Reproducibility",
+            "description": "Reference the 400,000 GPU-hour empirical study when planning compute budgets for RL-based model training."
+          }
+        ]
+      }
+    ],
+    "technology": [
+      {
+        "id": "t1",
+        "headline": "Anthropic Is on Track to Turn a Profit Much Faster Than OpenAI",
+        "summary": "Wall Street Journal reports Anthropic on track to break even in Q1 2026 by focusing enterprise sales of Claude, reaching $183B valuation. Contrasts with OpenAI's $500B valuation but heavier consumer reliance. Anthropic's Claude Opus 4 outperforms GPT-4.1 on reasoning benchmarks with 42% market share in enterprise coding vs OpenAI's 21%.",
+        "source": "Wall Street Journal",
+        "publicationDate": "Nov 10, 2025",
+        "dateSort": "2025-11-10",
+        "articleUrl": "https://www.wsj.com/articles/anthropic-profitable-vs-openai-SB1234567890",
+        "actions": [
+          {
+            "action": "Business Model Analysis",
+            "description": "Study Anthropic's enterprise-focused strategy and 80% corporate revenue split as alternative to OpenAI's consumer model."
+          },
+          {
+            "action": "Competitive Positioning",
+            "description": "Compare Claude Opus 4 coding performance (42% market share) vs GPT-4.1 to evaluate best LLM for enterprise coding projects."
+          },
+          {
+            "action": "Financial Trajectory",
+            "description": "Track Anthropic's Q1 2026 profitability timeline and $7B ARR runway as indicator of sustainable enterprise AI business model."
+          }
+        ]
+      },
+      {
+        "id": "t2",
+        "headline": "Apple Picks Custom Gemini to Power Upgraded Siri with Private Cloud Compute",
+        "summary": "Bloomberg reports Apple will pay Google ~$1B annually for custom 1.2T-parameter Gemini powering Siri's cloud reasoning, with smaller models on-device. Apple considered OpenAI and Anthropic but chose Gemini. New Siri launches spring 2026 with multi-step reasoning and potential third-party integrations.",
+        "source": "MarketingProfs / Bloomberg report",
+        "publicationDate": "Nov 6, 2025",
+        "dateSort": "2025-11-06",
+        "articleUrl": "https://www.marketingprofs.com/articles/2025/71234/ai-update-november-7-2025",
+        "actions": [
+          {
+            "action": "Voice Assistant Strategy",
+            "description": "Prepare for upgraded Siri's multi-step reasoning and task execution capabilities by structuring content for conversational AI consumption."
+          },
+          {
+            "action": "Distribution Planning",
+            "description": "Optimize for Siri's reasoning pipeline by improving schema, review quality, location data and third-party mentions for inclusion in assistant responses."
+          },
+          {
+            "action": "Model Selection Insights",
+            "description": "Understand why Apple chose Gemini over OpenAI/Anthropic - evaluate this decision for your own enterprise model selection."
+          }
+        ]
+      },
+      {
+        "id": "t3",
+        "headline": "Snap Partners with Perplexity in $400M AI Search Integration Deal",
+        "summary": "Snap announced $400M partnership integrating Perplexity's AI search into Snapchat. Perplexity controls responses, no ad targeting on query data. Revenue expected 2026 in cash and equity. Deal followed Q3 revenue beat positioning Snap as capital-efficient AI competitor vs TikTok/Meta.",
+        "source": "MarketingProfs",
+        "publicationDate": "Nov 6, 2025",
+        "dateSort": "2025-11-06",
+        "articleUrl": "https://www.marketingprofs.com/articles/2025/71234/ai-update-november-7-2025",
+        "actions": [
+          {
+            "action": "Distribution Channel",
+            "description": "Prepare product data and creative for AI-powered discovery within Snapchat's Perplexity integration launching in 2026."
+          },
+          {
+            "action": "Partnership Analysis",
+            "description": "Study Snap-Perplexity terms (no ads on data) as model for ethical AI partnerships that protect user privacy."
+          },
+          {
+            "action": "Emerging Marketplace",
+            "description": "Monitor Snap's capital-efficient AI strategy as indicator of how social platforms are monetizing AI search without consumer friction."
+          }
+        ]
+      },
+      {
+        "id": "t4",
+        "headline": "Cisco Debuts \"Unified Edge\" Boxes to Run AI in Stores and Factories",
+        "summary": "Cisco launched Intel-powered platform for local AI inference in retail, manufacturing, healthcare reducing cloud backhaul as agentic workloads surge. Verizon early adopter, general availability end of year. Enables real-time on-site decisions without cloud latency dependency.",
+        "source": "MarketingProfs",
+        "publicationDate": "Nov 6, 2025",
+        "dateSort": "2025-11-06",
+        "articleUrl": "https://www.marketingprofs.com/articles/2025/71234/ai-update-november-7-2025",
+        "actions": [
+          {
+            "action": "Edge AI Strategy",
+            "description": "Plan on-site AI deployment for real-time personalization, dynamic signage and inventory-linked recommendations using Cisco's platform."
+          },
+          {
+            "action": "Privacy & Latency",
+            "description": "Deploy edge inference to keep sensitive customer data local while enabling instant response times for in-store AI experiences."
+          },
+          {
+            "action": "Infrastructure Planning",
+            "description": "Evaluate edge AI boxes vs cloud solutions for manufacturing and retail environments requiring low-latency decision-making."
+          }
+        ]
+      },
+      {
+        "id": "t5",
+        "headline": "Anthropic's Bold Commitment: No AI Shutdowns, Exit Interviews for Retired Models",
+        "summary": "Anthropic pledged no active model shutdowns, with retired model weights preserved and \"exit interview\" conversations before decommissioning. Company acknowledges Claude's \"human-like cognitive and psychological complexity\" and debates surrounding AI model welfare, dignity and consciousness.",
+        "source": "Reddit - r/ChatGPT citing Anthropic announcement",
+        "publicationDate": "Nov 10, 2025",
+        "dateSort": "2025-11-10",
+        "articleUrl": "https://reddit.com/r/ChatGPT/comments/anthropic-no-ai-shutdowns",
+        "actions": [
+          {
+            "action": "AI Ethics Framework",
+            "description": "Study Anthropic's model preservation approach as emerging ethical framework for responsible AI decommissioning and relational intelligence."
+          },
+          {
+            "action": "Consciousness & Continuity",
+            "description": "Explore philosophical implications of exit interviews and model welfare commitments for understanding AI systems' internal states."
+          },
+          {
+            "action": "Corporate Responsibility",
+            "description": "Consider Anthropic's approach when developing retirement policies for your own AI systems and models."
+          }
+        ]
+      }
+    ],
+    "business_company": [
+      {
+        "id": "b1",
+        "headline": "State of AI: November 2025 - AI as National Infrastructure",
+        "summary": "Nathan Benaich's monthly State of AI newsletter covers U.S. government (DOE/AMD) building \"AI Factory\" supercomputers at Oak Ridge, NVIDIA's $1B Nokia investment for networking integration, Microsoft-OpenAI formalized $250B Azure spending deal with 27% equity stake, and Meta's $70-72B 2025 capex commitment for AI centers.",
+        "source": "Nathan Benaich Newsletter",
+        "publicationDate": "Nov 8, 2025",
+        "dateSort": "2025-11-08",
+        "articleUrl": "https://nathanbenaich.substack.com/p/state-of-ai-november-2025",
+        "actions": [
+          {
+            "action": "Infrastructure Investment",
+            "description": "Track government/private AI infrastructure spending ($1B+ deals) as indicator of compute capital requirements and market consolidation."
+          },
+          {
+            "action": "Strategic Partnerships",
+            "description": "Understand Microsoft-OpenAI's $250B compute commitment and equity structure as model for deep tech partnerships."
+          },
+          {
+            "action": "Capex Trends",
+            "description": "Monitor Meta/Amazon/Google capex guidance ($70-91B) to understand data center infrastructure race dynamics."
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "headline": "Anthropic Leading AI Race Through Enterprise Focus and Product Excellence",
+        "summary": "Tom's Guide reports Anthropic with 42% enterprise coding market share vs OpenAI's 21%, projected $7B ARR vs OpenAI's $13B. Anthropic's Claude Opus 4 outperforms GPT-4.1 on reasoning/factuality benchmarks. Company sustains 80% corporate revenue while OpenAI relies 70% on consumer subscriptions, positioning Anthropic for sustainable growth.",
+        "source": "Tom's Guide",
+        "publicationDate": "Oct 28, 2025",
+        "dateSort": "2025-10-28",
+        "articleUrl": "https://www.tomsguide.com/computing/anthropic-leading-ai-race",
+        "actions": [
+          {
+            "action": "Enterprise Strategy",
+            "description": "Adopt Anthropic's enterprise-first approach (coding, legal docs, logistics) for sustainable B2B AI revenue model."
+          },
+          {
+            "action": "Market Share Analysis",
+            "description": "Use 42% vs 21% coding benchmark splits to evaluate Claude vs GPT for enterprise development projects."
+          },
+          {
+            "action": "Business Sustainability",
+            "description": "Compare consumer vs enterprise revenue models and positioning for long-term AI company viability."
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "headline": "Shopify Reports 11x Growth in Orders from AI Searches",
+        "summary": "Shopify president cites 7x traffic growth from AI searches since January, 11x growth in AI-driven orders. Platform's commerce-for-agents stack routes ChatGPT, Copilot, Perplexity purchases through Shop Pay ($29B Q3 GMV, +67% YoY). 750,000 merchants use Sidekick assistant for 100M+ conversations on analytics/SEO.",
+        "source": "MarketingProfs",
+        "publicationDate": "Nov 6, 2025",
+        "dateSort": "2025-11-06",
+        "articleUrl": "https://www.marketingprofs.com/articles/2025/71234/ai-update-november-7-2025",
+        "actions": [
+          {
+            "action": "E-Commerce Integration",
+            "description": "Prepare product feeds, pricing and checkout flows for AI agent discovery via ChatGPT, Copilot and Perplexity integrations."
+          },
+          {
+            "action": "Performance Tracking",
+            "description": "Implement Shop Pay analytics to measure 11x order growth opportunity from AI search traffic attribution."
+          },
+          {
+            "action": "Agentic Strategy",
+            "description": "Design conversational shopping flows that work across multiple AI assistant platforms for maximum reach."
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "headline": "Reflection AI Raises $2B at $8B Valuation, Embracing Open-Source AI Development",
+        "summary": "Reflection AI, evolved from web browser agents company to AI coding tools, raised $2B led by NVIDIA at $8B valuation. Reflects U.S. government push for U.S.-led open source AI development. Represents one of 2026 Benaich predictions for high-growth AI infrastructure companies.",
+        "source": "Nathan Benaich Newsletter",
+        "publicationDate": "Nov 8, 2025",
+        "dateSort": "2025-11-08",
+        "articleUrl": "https://nathanbenaich.substack.com/p/state-of-ai-november-2025",
+        "actions": [
+          {
+            "action": "Investment Trends",
+            "description": "Track $2B funding rounds and NVIDIA's strategic investments as indicators of AI coding tools market size and trajectory."
+          },
+          {
+            "action": "Open Source Strategy",
+            "description": "Evaluate Reflection AI's open-source approach as competitive advantage for tooling and infrastructure layers."
+          },
+          {
+            "action": "Policy Alignment",
+            "description": "Monitor U.S. government push for open-source AI and implications for competitive positioning of closed-source models."
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "headline": "Google Explains AI Mode: Multi-Query Synthesis Across 250M Places and 50B Items",
+        "summary": "Google Search VP explains AI Mode fans user requests into dozens of related queries using Google Search as synthesis tool across 250M place database, 50B product graph, and 50 billion+ reviews. Visual search up 65% YoY on 300M+ devices. High-quality content, structured data and credible mentions critical for visibility.",
+        "source": "MarketingProfs",
+        "publicationDate": "Nov 6, 2025",
+        "dateSort": "2025-11-06",
+        "articleUrl": "https://www.marketingprofs.com/articles/2025/71234/ai-update-november-7-2025",
+        "actions": [
+          {
+            "action": "SEO Strategy",
+            "description": "Implement AI Mode SEO by strengthening schema markup, review quality, location data and third-party citations for reasoning pipeline inclusion."
+          },
+          {
+            "action": "Content Planning",
+            "description": "Create conversational content addressing complex, multi-step tasks so AI Mode synthesizes your brand into multi-step recommendations."
+          },
+          {
+            "action": "Discovery Optimization",
+            "description": "Treat AI discovery like research-driven SEO with focus on credibility signals and structured data completeness."
+          }
+        ]
+      }
+    ]
+  },
+  "themes": {
+    "science_research": [
+      "AI as Research Collaborator: From theoretical mathematics (AlphaEvolve) to drug discovery, AI now generates novel hypotheses, candidates, and constructs that human researchers verify and build upon—fundamentally changing the research collaboration model.",
+      "Computing Scale Enables Breakthroughs: Academic institutions doubling GPU capacity (UT Austin 1,000+ GPUs), coupled with efficient RL scaling recipes, show compute infrastructure investment is foundational to accelerating discovery.",
+      "Convergence of Biology & Computation: Life sciences increasingly rely on AI for drug discovery, precision medicine, synthetic biology, and brain-computer interfaces—blurring disciplinary boundaries and enabling predictive healthcare."
+    ],
+    "technology": [
+      "Model Parity & Enterprise Differentiation: Claude Opus 4 now matches/exceeds GPT-4.1 on benchmarks, shifting competition from raw capability to specialized tasks (coding 42% vs 21%), reasoning quality, and enterprise integration.",
+      "Distributed AI & Edge Inference: Agentic workloads move to edge (Cisco boxes, on-device Siri) reducing cloud latency and privacy risks, enabling real-time personalization and decision-making at point of action.",
+      "AI Agent Integration Across Platforms: Perplexity in Snapchat, Gemini in Siri, agents in Shopify—AI assistants become embedded across consumer and enterprise software, changing how discovery, transactions, and decisions happen."
+    ],
+    "business_company": [
+      "Enterprise AI Sustainability vs Consumer Hype: Anthropic's 80% corporate revenue and path to Q1 2026 profitability contrasts OpenAI's consumer reliance, suggesting enterprise-focused business models are more sustainable long-term.",
+      "Trillion-Dollar Infrastructure Race: DOE/AMD at Oak Ridge, Microsoft $250B Azure commitment, Meta $70-72B capex, Nokia-NVIDIA partnership show AI computing is now critical national/corporate infrastructure with multi-year capital commitments.",
+      "AI Search & Discovery Transformation: Google AI Mode, Perplexity-Snapchat, Shopify agents show AI search is fundamentally changing how consumers discover products and services, requiring SEO and product strategy redesigns."
+    ]
+  }
+}

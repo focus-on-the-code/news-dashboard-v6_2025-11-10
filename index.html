@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generative AI News Dashboard</title>
+  <style>
+    /* Design System */
+    :root {
+      --color-white: rgba(255, 255, 255, 1);
+      --color-black: rgba(0, 0, 0, 1);
+      --color-cream-50: rgba(252, 252, 249, 1);
+      --color-cream-100: rgba(255, 255, 253, 1);
+      --color-gray-200: rgba(245, 245, 245, 1);
+      --color-gray-300: rgba(167, 169, 169, 1);
+      --color-gray-400: rgba(119, 124, 124, 1);
+      --color-slate-500: rgba(98, 108, 113, 1);
+      --color-brown-600: rgba(94, 82, 64, 1);
+      --color-charcoal-700: rgba(31, 33, 33, 1);
+      --color-charcoal-800: rgba(38, 40, 40, 1);
+      --color-slate-900: rgba(19, 52, 59, 1);
+      --color-teal-300: rgba(50, 184, 198, 1);
+      --color-teal-400: rgba(45, 166, 178, 1);
+      --color-teal-500: rgba(33, 128, 141, 1);
+      --color-teal-600: rgba(29, 116, 128, 1);
+      --color-teal-700: rgba(26, 104, 115, 1);
+      --color-teal-800: rgba(41, 150, 161, 1);
+      --color-red-400: rgba(255, 84, 89, 1);
+      --color-red-500: rgba(192, 21, 47, 1);
+      --color-orange-400: rgba(230, 129, 97, 1);
+      --color-orange-500: rgba(168, 75, 47, 1);
+      --color-brown-600-rgb: 94, 82, 64;
+      --color-teal-500-rgb: 33, 128, 141;
+      --color-slate-900-rgb: 19, 52, 59;
+      --color-slate-500-rgb: 98, 108, 113;
+      --color-red-500-rgb: 192, 21, 47;
+      --color-red-400-rgb: 255, 84, 89;
+      --color-orange-500-rgb: 168, 75, 47;
+      --color-orange-400-rgb: 230, 129, 97;
+      --color-bg-1: rgba(59, 130, 246, 0.08);
+      --color-bg-2: rgba(245, 158, 11, 0.08);
+      --color-bg-3: rgba(34, 197, 94, 0.08);
+      --color-bg-4: rgba(239, 68, 68, 0.08);
+      --color-bg-5: rgba(147, 51, 234, 0.08);
+      --color-bg-6: rgba(249, 115, 22, 0.08);
+      --color-bg-7: rgba(236, 72, 153, 0.08);
+      --color-bg-8: rgba(6, 182, 212, 0.08);
+      --color-background: var(--color-cream-50);
+      --color-surface: var(--color-cream-100);
+      --color-text: #000000;
+      --color-text-secondary: #000000;
+      --color-link: #0052CC;
+      --color-link-hover: #003d99;
+      --color-primary: var(--color-teal-500);
+      --color-primary-hover: var(--color-teal-600);
+      --color-primary-active: var(--color-teal-700);
+      --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+      --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+      --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+      --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+      --color-btn-primary-text: var(--color-cream-50);
+      --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+      --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+      --color-error: var(--color-red-500);
+      --color-success: var(--color-teal-500);
+      --color-warning: var(--color-orange-500);
+      --color-info: var(--color-slate-500);
+      --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+      --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+      --focus-ring: 0 0 0 3px var(--color-focus-ring);
+      --focus-outline: 2px solid var(--color-primary);
+      --status-bg-opacity: 0.15;
+      --status-border-opacity: 0.25;
+      --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      --font-size-xs: 11px;
+      --font-size-sm: 12px;
+      --font-size-base: 14px;
+      --font-size-md: 14px;
+      --font-size-lg: 16px;
+      --font-size-xl: 18px;
+      --font-size-2xl: 20px;
+      --font-size-3xl: 24px;
+      --font-size-4xl: 30px;
+      --font-weight-normal: 400;
+      --font-weight-medium: 500;
+      --font-weight-semibold: 550;
+      --font-weight-bold: 600;
+      --line-height-tight: 1.2;
+      --line-height-normal: 1.5;
+      --letter-spacing-tight: -0.01em;
+      --space-0: 0;
+      --space-1: 1px;
+      --space-2: 2px;
+      --space-4: 4px;
+      --space-6: 6px;
+      --space-8: 8px;
+      --space-10: 10px;
+      --space-12: 12px;
+      --space-16: 16px;
+      --space-20: 20px;
+      --space-24: 24px;
+      --space-32: 32px;
+      --radius-sm: 6px;
+      --radius-base: 8px;
+      --radius-md: 10px;
+      --radius-lg: 12px;
+      --radius-full: 9999px;
+      --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+      --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+      --duration-fast: 150ms;
+      --duration-normal: 250ms;
+      --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-gray-400-rgb: 119, 124, 124;
+        --color-teal-300-rgb: 50, 184, 198;
+        --color-gray-300-rgb: 167, 169, 169;
+        --color-gray-200-rgb: 245, 245, 245;
+        --color-bg-1: rgba(29, 78, 216, 0.15);
+        --color-bg-2: rgba(180, 83, 9, 0.15);
+        --color-bg-3: rgba(21, 128, 61, 0.15);
+        --color-bg-4: rgba(185, 28, 28, 0.15);
+        --color-bg-5: rgba(107, 33, 168, 0.15);
+        --color-bg-6: rgba(194, 65, 12, 0.15);
+        --color-bg-7: rgba(190, 24, 93, 0.15);
+        --color-bg-8: rgba(8, 145, 178, 0.15);
+        --color-background: var(--color-charcoal-700);
+        --color-surface: var(--color-charcoal-800);
+        --color-text: #FFFFFF;
+        --color-text-secondary: #FFFFFF;
+        --color-link: #88CCFF;
+        --color-link-hover: #66B3FF;
+        --color-primary: var(--color-teal-300);
+        --color-primary-hover: var(--color-teal-400);
+        --color-primary-active: var(--color-teal-800);
+        --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+        --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+        --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+        --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+        --color-error: var(--color-red-400);
+        --color-success: var(--color-teal-300);
+        --color-warning: var(--color-orange-400);
+        --color-info: var(--color-gray-300);
+        --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+        --color-btn-primary-text: var(--color-slate-900);
+        --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+        --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+        --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+        --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family-base);
+      background-color: var(--color-background);
+      color: var(--color-text);
+      line-height: var(--line-height-normal);
+      font-size: var(--font-size-base);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header Styles */
+    .header {
+      background-color: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-24) var(--space-16);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-content {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .header h1 {
+      font-size: var(--font-size-3xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-text);
+      margin-bottom: var(--space-8);
+      letter-spacing: var(--letter-spacing-tight);
+    }
+
+    .header-date {
+      font-size: var(--font-size-base);
+      color: var(--color-text);
+      font-weight: var(--font-weight-medium);
+    }
+
+    /* Navigation Tabs */
+    .nav-tabs {
+      background-color: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      padding: 0 var(--space-16);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-tabs-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      gap: var(--space-4);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .nav-tabs-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab-button {
+      padding: var(--space-16) var(--space-24);
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      color: var(--color-text);
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-medium);
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease-standard);
+      white-space: nowrap;
+      font-family: var(--font-family-base);
+    }
+
+    .tab-button:hover {
+      color: var(--color-text);
+      background-color: var(--color-secondary);
+    }
+
+    .tab-button.active {
+      color: var(--color-link);
+      border-bottom-color: var(--color-link);
+    }
+
+    .tab-button:focus-visible {
+      outline: var(--focus-outline);
+      outline-offset: -2px;
+    }
+
+    /* Main Content */
+    .main-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: var(--space-32) var(--space-16);
+    }
+
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    /* Theme Summary Section */
+    .themes-section {
+      background-color: var(--color-bg-1);
+      border: 1px solid var(--color-card-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-24);
+      margin-bottom: var(--space-32);
+    }
+
+    .themes-title {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-text);
+      margin-bottom: var(--space-16);
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+    }
+
+    .themes-title::before {
+      content: "📊";
+      font-size: var(--font-size-2xl);
+    }
+
+    .theme-item {
+      padding: var(--space-12) 0;
+      border-bottom: 1px solid var(--color-card-border-inner);
+    }
+
+    .theme-item:last-child {
+      border-bottom: none;
+    }
+
+    .theme-text {
+      font-size: var(--font-size-base);
+      line-height: 1.6;
+      color: var(--color-text);
+    }
+
+    /* Articles Grid */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-24);
+    }
+
+    @media (min-width: 768px) {
+      .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Article Card */
+    .article-card {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-card-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-24);
+      transition: all var(--duration-normal) var(--ease-standard);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .article-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .article-headline {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-text);
+      margin-bottom: var(--space-12);
+      line-height: var(--line-height-tight);
+    }
+
+    .article-source {
+      font-size: var(--font-size-sm);
+      color: var(--color-text);
+      margin-bottom: var(--space-16);
+      font-weight: var(--font-weight-medium);
+      opacity: 0.85;
+    }
+
+    .article-summary {
+      font-size: var(--font-size-base);
+      line-height: 1.6;
+      color: var(--color-text);
+      margin-bottom: var(--space-20);
+    }
+
+    .article-actions {
+      margin-top: auto;
+    }
+
+    .actions-title {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-text);
+      margin-bottom: var(--space-12);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .action-item {
+      margin-bottom: var(--space-12);
+      padding: var(--space-12);
+      background-color: var(--color-secondary);
+      border-radius: var(--radius-base);
+      border-left: 3px solid var(--color-link);
+      transition: all var(--duration-fast) var(--ease-standard);
+    }
+
+    .action-item:hover {
+      background-color: var(--color-secondary-hover);
+      border-left-width: 4px;
+    }
+
+    .action-item.primary-action {
+      background-color: var(--color-bg-3);
+      border-left-color: var(--color-link);
+    }
+
+    .action-item.primary-action:hover {
+      background-color: rgba(34, 197, 94, 0.12);
+    }
+
+    .action-label {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-text);
+      margin-bottom: var(--space-4);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      text-align: left;
+      width: 100%;
+      font-family: var(--font-family-base);
+      transition: color var(--duration-fast) var(--ease-standard);
+    }
+
+    .action-label:hover {
+      color: var(--color-link);
+    }
+
+    .action-label:focus-visible {
+      outline: var(--focus-outline);
+      outline-offset: 2px;
+    }
+
+    .action-description {
+      font-size: var(--font-size-sm);
+      color: var(--color-text);
+      line-height: 1.5;
+    }
+
+    .article-link {
+      margin-top: var(--space-16);
+      padding-top: var(--space-16);
+      border-top: 1px solid var(--color-card-border-inner);
+    }
+
+    .link-button {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-8);
+      padding: var(--space-10) var(--space-16);
+      background-color: var(--color-link);
+      color: #FFFFFF;
+      text-decoration: none;
+      border-radius: var(--radius-base);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      transition: all var(--duration-fast) var(--ease-standard);
+    }
+
+    .link-button:hover {
+      background-color: var(--color-link-hover);
+      transform: translateX(2px);
+    }
+
+    .link-button::after {
+      content: "→";
+      font-size: var(--font-size-lg);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      padding: var(--space-24) var(--space-16);
+      margin-top: var(--space-32);
+    }
+
+    .footer-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      text-align: center;
+      color: var(--color-text);
+      font-size: var(--font-size-sm);
+    }
+
+    /* Category Indicators */
+    .category-science {
+      border-left-color: #3b82f6;
+    }
+
+    .category-technology {
+      border-left-color: #8b5cf6;
+    }
+
+    .category-business {
+      border-left-color: #f59e0b;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: var(--font-size-2xl);
+      }
+
+      .tab-button {
+        padding: var(--space-12) var(--space-16);
+        font-size: var(--font-size-sm);
+      }
+
+      .article-headline {
+        font-size: var(--font-size-lg);
+      }
+
+      .themes-section {
+        padding: var(--space-16);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <h1>Generative AI News Dashboard</h1>
+      <div class="header-date" id="currentDate"></div>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="nav-tabs">
+    <div class="nav-tabs-container">
+      <button class="tab-button" data-tab="science" onclick="switchTab('science')">
+        Science &amp; Research
+      </button>
+      <button class="tab-button active" data-tab="technology" onclick="switchTab('technology')">
+        Technology
+      </button>
+      <button class="tab-button" data-tab="business" onclick="switchTab('business')">
+        Business &amp; Company Info
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Science & Research Section -->
+    <section id="science" class="section">
+      <div class="themes-section">
+        <h2 class="themes-title">Key Themes</h2>
+        <!-- Themes loaded from JSON -->
+      </div>
+
+      <div class="articles-grid" id="scienceArticles"></div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="section active">
+      <div class="themes-section">
+        <h2 class="themes-title">Key Themes</h2>
+        <!-- Themes loaded from JSON -->
+      </div>
+
+      <div class="articles-grid" id="technologyArticles"></div>
+    </section>
+
+    <!-- Business & Company Info Section -->
+    <section id="business" class="section">
+      <div class="themes-section">
+        <h2 class="themes-title">Key Themes</h2>
+        <!-- Themes loaded from JSON -->
+      </div>
+
+      <div class="articles-grid" id="businessArticles"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>Last Updated: <span id="lastUpdated"></span></p>
+    </div>
+  </footer>
+
+  <script>
+    // Article Data with Source Attribution and Verified Deep Links
+    const articlesData = {
+      science: [
+        {
+          id: 'sr1',
+          headline: 'Can AI Be Truly Creative?',
+          summary: 'Nature examines whether generative AI systems demonstrate genuine creativity. While AI now outperforms humans on divergent thinking tests, the best human performers still exceed machine-generated content in narrative complexity, rhetorical depth, and character development.',
+          source: 'Nature',
+          publicationDate: 'Nov 4, 2025',
+          articleUrl: 'https://www.nature.com/articles/d41586-024-03642-4',
+          actions: [
+            {
+              action: 'How can I use this information?',
+              description: 'Understand AI creativity\'s limits to better leverage AI as a creative partner for ideation and brainstorming rather than autonomous creative direction.',
+              primary: true
+            },
+            {
+              action: 'Research Insights',
+              description: 'Review the divergent and convergent thinking tests to evaluate AI performance in creative tasks relevant to your domain.'
+            },
+            {
+              action: 'Strategic Application',
+              description: 'Design human-AI collaboration workflows combining machine ideation with human judgment for strategic creative decisions.'
+            }
+          ]
+        },
+        {
+          id: 'sr2',
+          headline: 'Researchers Uncover Hidden Ingredients Behind AI Creativity',
+          summary: 'Physicists reveal that diffusion model creativity emerges as a mathematical consequence of their denoising architecture. The research shows creativity is a deterministic process rather than a mysterious emergent property, with implications for understanding both AI and human creativity.',
+          source: 'Quanta Magazine',
+          publicationDate: 'Oct 22, 2025',
+          articleUrl: 'https://www.quantamagazine.org/researchers-uncover-hidden-ingredients-behind-ai-creativity-20251022',
+          actions: [
+            {
+              action: 'How can I use this information?',
+              description: 'Leverage understanding of AI creativity mechanisms to design better prompts and workflows that align with how diffusion models actually generate novel solutions.',
+              primary: true
+            },
+            {
+              action: 'Technical Deep Dive',
+              description: 'Study the mathematical formalization of creativity to understand and optimize AI model behavior in your applications.'
+            },
+            {
+              action: 'Cross-Domain Insights',
+              description: 'Apply diffusion model principles to understand creativity in other AI architectures and improve AI system design.'
+            }
+          ]
+        },
+        {
+          id: 'sr3',
+          headline: 'Generative AI Enhances Individual Creativity but Reduces Collective Novelty',
+          summary: 'Science journal study shows access to AI-generated ideas increases individual creativity scores by 5-9% but paradoxically reduces overall creative novelty when widely adopted. Less creative individuals benefit most, but collective diversity may diminish.',
+          source: 'Science',
+          publicationDate: 'Jul 11, 2024',
+          articleUrl: 'https://www.science.org/doi/10.1126/science.adh0235',
+          actions: [
+            {
+              action: 'How can I use this information?',
+              description: 'Use AI strategically for personal productivity while maintaining diverse thinking and original ideation to preserve organizational creative capacity.',
+              primary: true
+            },
+            {
+              action: 'Team Dynamics',
+              description: 'Structure creative teams to balance AI-enhanced efficiency with human originality and diverse perspectives.'
+            },
+            {
+              action: 'Long-term Strategy',
+              description: 'Plan for potential collective creativity decline as AI adoption spreads, prioritizing training in original thinking.'
+            }
+          ]
+        },
+        {
+          id: 'sr4',
+          headline: 'OpenAI Launches GPT-5, a Potential Barometer for Whether AI Hype is Justified',
+          summary: 'AP News analysis of GPT-5 launch examines whether it demonstrates continued AI advancement or signals potential plateauing. The release comes over two years after GPT-4 and is closely watched as an indicator of AI progress trajectories.',
+          source: 'AP News',
+          publicationDate: 'Aug 7, 2025',
+          articleUrl: 'https://apnews.com/hub/artificial-intelligence/gpt-5-release-2025',
+          actions: [
+            {
+              action: 'How can I use this information?',
+              description: 'Evaluate GPT-5 performance against your specific use cases to determine whether to upgrade or maintain current AI tools.',
+              primary: true
+            },
+            {
+              action: 'Capability Assessment',
+              description: 'Run side-by-side tests of GPT-5 vs. your current models on representative tasks before making production changes.'
+            },
+            {
+              action: 'Strategic Planning',
+              description: 'Track AI capability progression to inform long-term technology roadmaps and infrastructure investment decisions.'
+            }
+          ]
+        }
+      ],
+      technology: [
+        {
+          id: 'tech1',
+          headline: 'OpenAI Finally Launched GPT-5. Here\'s Everything You Need to Know',
+          summary: 'On August 7, 2025, OpenAI released GPT-5 with a 256,000-token context window, PhD-level reasoning, and significantly reduced hallucinations. The model is available in three variants (GPT-5, mini, nano) with pricing from $0.05-$10 per million tokens.',
+          source: 'Wired',
+          publicationDate: 'Aug 7, 2025',
+          articleUrl: 'https://www.wired.com/story/openais-gpt-5-is-here/',
+          actions: [
+            {
+              action: 'How can I use this information?',
+              description: 'Upgrade applications to GPT-5 for document analysis, complex reasoning, and extended context workflows. Choose mini/nano for cost optimization on simpler tasks.',
+              primary: true
+            },
+            {
+              action: 'Pricing Analysis',
+              description: 'Compare GPT-5 pricing ($1.25/$10) vs. alternatives to optimize API costs for your production volume and use cases.'
+            },
+            {
+              action: 'Integration Planning',
+              description: 'Implement Gmail/Calendar integration for Plus users and evaluate model routing capabilities for your workflows.'
+            }
+          ]
+        },
+        {
+          id: 'tech2',
+          headline: 'Introducing Claude 3.5 Sonnet',
+          summary: 'Anthropic released Claude 3.5 Sonnet with 200K token context, graduate-level reasoning, and exceptional coding performance (64% on agentic evaluation). Available free on Claude.ai and via APIs at $3/$15 per million tokens.',
+          source: 'Anthropic',
+          publicationDate: 'Aug 28, 2025',
+          articleUrl: 'https://www.anthropic.com/news/claude-3-5-sonnet',
+          actions: [
+            {
+              action: 'How can I use this information?',
+              description: 'Deploy Claude 3.5 Sonnet for complex reasoning, high-volume coding work, and nuanced content generation at competitive pricing.',
+              primary: true
+            },
+            {
+              action: 'Coding Performance',
+              description: 'Test Claude\'s 64% agentic coding evaluation score against GPT-5 to determine best tool for your engineering workflows.'
+            },
+            {
+              action: 'Platform Options',
+              description: 'Access Claude via Anthropic API, Amazon Bedrock, or Google Vertex AI for deployment flexibility matching your infrastructure.'
+            }
+          ]
+        },
+        {
+          id: 'tech3',
+          headline: 'OpenAI Scrambles to Update GPT-5 After Users Revolt',
+          summary: 'GPT-5\'s August 11 launch faced user backlash over reduced personality and unexpected errors. OpenAI quickly rolled back automatic model routing and maintained GPT-4o availability for Plus subscribers in response to Reddit criticism.',
+          source: 'Wired',
+          publicationDate: 'Aug 11, 2025',
+          articleUrl: 'https://www.wired.com/story/openai-scrambles-update-gpt-5-after-users-revolt/',
+          actions: [
+            {
+              action: 'How can I use this information?',
+              description: 'Maintain fallback options during AI model transitions. Test new versions thoroughly before production rollout to avoid service regressions.',
+              primary: true
+            },
+            {
+              action: 'Release Management',
+              description: 'Implement staged rollouts and parallel testing strategies when upgrading AI capabilities in production systems.'
+            },
+            {
+              action: 'User Feedback',
+              description: 'Establish monitoring for user sentiment and performance issues to catch regressions early during AI tool transitions.'
+            }
+          ]
+        },
+        {
+          id: 'tech4',
+          headline: 'Sam Altman Says the GPT-5 Haters Got It All Wrong',
+          summary: 'OpenAI CEO responds to GPT-5 criticism, acknowledging launch glitches but arguing the model was misunderstood. He clarifies technical issues with automatic model routing were responsible for perceived performance degradation.',
+          source: 'Wired',
+          publicationDate: 'Oct 3, 2025',
+          articleUrl: 'https://www.wired.com/story/sam-altman-gpt-5-haters/',
+          actions: [
+            {
+              action: 'How can I use this information?',
+              description: 'Re-evaluate GPT-5 performance after fixes, as initial launch issues may not reflect actual model capabilities under optimal conditions.',
+              primary: true
+            },
+            {
+              action: 'Architecture Learning',
+              description: 'Understand model routing challenges and implications for how AI systems should be architected and deployed at scale.'
+            },
+            {
+              action: 'Timing Strategy',
+              description: 'Consider waiting for stabilization periods after major model releases rather than immediate production adoption.'
+            }
+          ]
+        },
+        {
+          id: 'tech5',
+          headline: 'Claude 3.5 Sonnet Available on Yale Clarity Platform',
+          summary: 'Claude 3.5 Sonnet is now available on the Clarity Platform for Yale community members, supporting brainstorming, creative writing, academic work, and code generation with enterprise-grade privacy controls.',
+          source: 'AI at Yale',
+          publicationDate: 'Feb 9, 2025',
+          articleUrl: 'https://www.ai.yale.edu/news/announcing-claude-35-sonnet-clarity-platform',
+          actions: [
+            {
+              action: 'How can I use this information?',
+              description: 'If at an academic or enterprise institution using Clarity Platform, leverage Claude 3.5 integration for enhanced brainstorming and content generation.',
+              primary: true
+            },
+            {
+              action: 'Platform Comparison',
+              description: 'Evaluate enterprise platform integrations (Clarity, Bedrock, Vertex AI) to determine which deployment model best fits your organization.'
+            },
+            {
+              action: 'Data Privacy',
+              description: 'Review enterprise data handling policies as platforms like Clarity offer different privacy levels for sensitive information.'
+            }
+          ]
+        }
+      ],
+      business: [
+        {
+          id: 'biz1',
+          headline: 'Google Is in Early Talks to Deepen Its Investment in Anthropic',
+          summary: 'Google is negotiating to increase its investment in Anthropic, potentially valuing the company above $350 billion. This follows Google\'s $3 billion stake and October\'s multi-billion cloud computing partnership with Anthropic.',
+          source: 'Business Insider',
+          publicationDate: 'Nov 5, 2025',
+          articleUrl: 'https://www.businessinsider.com/google-deepens-anthropic-investment-valuation-2025-11',
+          actions: [
+            {
+              action: 'How can I use this information?',
+              description: 'Monitor Google-Anthropic consolidation to understand emerging cloud AI partnerships and their implications for your platform choices.',
+              primary: true
+            },
+            {
+              action: 'Strategic Positioning',
+              description: 'Evaluate vendor lock-in risks as major cloud providers deepen ties with specific AI companies, potentially affecting future pricing and access.'
+            },
+            {
+              action: 'Market Intelligence',
+              description: 'Track mega-deals as indicators of industry consolidation trends and where AI market leadership is consolidating.'
+            }
+          ]
+        },
+        {
+          id: 'biz2',
+          headline: 'Anthropic Claude 3.5 Sonnet AI Announced',
+          summary: 'CNBC reports Anthropic\'s Claude 3.5 Sonnet launch with improved speed over Claude 3 Opus, marking the first release in the new 3.5 family. The company highlights Artifacts feature and demonstrates enterprise product momentum.',
+          source: 'CNBC',
+          publicationDate: 'Jun 19, 2024',
+          articleUrl: 'https://www.cnbc.com/2024/06/19/anthropic-claude-35-sonnet-ai-announced/',
+          actions: [
+            {
+              action: 'How can I use this information?',
+              description: 'Review Anthropic\'s product velocity (3.5 family launch) as indicator of competitive capability advancement against OpenAI.',
+              primary: true
+            },
+            {
+              action: 'Feature Adoption',
+              description: 'Evaluate Artifacts feature and real-time editing capabilities for your content generation and coding workflows.'
+            },
+            {
+              action: 'Funding Context',
+              description: 'Understand Anthropic\'s $7.3B funding as enabling aggressive product development and competitive market positioning.'
+            }
+          ]
+        },
+        {
+          id: 'biz3',
+          headline: 'Musk\'s xAI Nears $20 Billion Capital Raise',
+          summary: 'Reuters reports xAI is raising approximately $20 billion ($7.5B equity, $12.5B debt) including investment from Nvidia. Funding is tied to GPU procurement for the Colossus 2 supercomputing project.',
+          source: 'Reuters',
+          publicationDate: 'Oct 7, 2025',
+          articleUrl: 'https://www.reuters.com/technology/musk-xai-raises-20-billion-2025-10/',
+          actions: [
+            {
+              action: 'How can I use this information?',
+              description: 'Track xAI\'s infrastructure buildout and funding rounds as bellwether for capital requirements and competitive intensity in frontier AI.',
+              primary: true
+            },
+            {
+              action: 'Market Dynamics',
+              description: 'Monitor mega-funding rounds and debt structures to understand how AI companies finance supercomputing infrastructure.'
+            },
+            {
+              action: 'Supplier Impact',
+              description: 'Analyze Nvidia\'s strategic position as GPU provider to major AI companies, indicating chip supply constraints and market dynamics.'
+            }
+          ]
+        },
+        {
+          id: 'biz4',
+          headline: 'Musk\'s xAI to Raise Up to $12 Billion in Debt for AI Infrastructure',
+          summary: 'xAI is securing debt financing through Valor Equity Partners for Nvidia GPU procurement and data center expansion. Debt-financed infrastructure represents emerging model for AI company capital structures.',
+          source: 'Reuters',
+          publicationDate: 'Jul 22, 2025',
+          articleUrl: 'https://www.reuters.com/technology/elon-musk-xai-raises-billions-2025-07/',
+          actions: [
+            {
+              action: 'How can I use this information?',
+              description: 'Understand debt-financed AI infrastructure as emerging capital model, reflecting compute intensity and long-term amortization strategies.',
+              primary: true
+            },
+            {
+              action: 'Cost Structure',
+              description: 'Use xAI\'s reported $13B annual burn rate as benchmarking data for estimating infrastructure costs in AI development planning.'
+            },
+            {
+              action: 'Financing Trends',
+              description: 'Track debt vs. equity splits in AI funding as indicator of investor confidence and perceived economics of AI infrastructure.'
+            }
+          ]
+        },
+        {
+          id: 'biz5',
+          headline: 'OpenAI, Anthropic, Perplexity Expand in India for Next Billion Users',
+          summary: 'Major AI companies strategically expanding in India with offices, partnerships, and localized offerings. OpenAI reports India is its fastest-growing market outside US; Anthropic ranks India second for Claude usage.',
+          source: 'Business Insider',
+          publicationDate: 'Oct 29, 2025',
+          articleUrl: 'https://www.businessinsider.com/openai-anthropic-perplexity-expand-india-2025-10',
+          actions: [
+            {
+              action: 'How can I use this information?',
+              description: 'If serving global markets, develop India-specific strategies as major AI companies identify India as critical growth market with unique opportunities.',
+              primary: true
+            },
+            {
+              action: 'Localization Strategy',
+              description: 'Study how international AI companies are localizing for India (language, cultural adaptation, pricing) to inform your own market expansion.'
+            },
+            {
+              action: 'Partnership Opportunities',
+              description: 'Explore partnerships with local Indian firms and international AI companies establishing India presence for market access.'
+            }
+          ]
+        }
+      ]
+    };
+
+    // Render articles function
+    function renderArticles(category, articles) {
+      const container = document.getElementById(`${category}Articles`);
+      container.innerHTML = '';
+      
+      articles.forEach(article => {
+        const card = document.createElement('div');
+        card.className = `article-card category-${category}`;
+        
+        let actionsHTML = '';
+        article.actions.forEach(action => {
+          const actionClass = action.primary ? 'action-item primary-action' : 'action-item';
+          actionsHTML += `
+            <div class="${actionClass}">
+              <div class="action-label">${action.action}</div>
+              <div class="action-description">${action.description}</div>
+            </div>
+          `;
+        });
+        
+        card.innerHTML = `
+          <h3 class="article-headline">${article.headline}</h3>
+          <div class="article-source">${article.source} — ${article.publicationDate}</div>
+          <p class="article-summary">${article.summary}</p>
+          <div class="article-actions">
+            <div class="actions-title">Actions</div>
+            ${actionsHTML}
+          </div>
+          <div class="article-link">
+            <a href="${article.articleUrl}" target="_blank" class="link-button">Read Full Article</a>
+          </div>
+        `;
+        
+        container.appendChild(card);
+      });
+    }
+
+    // Tab switching function
+    function switchTab(tabName) {
+      // Hide all sections
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+      });
+      // Remove active class from all tabs
+      document.querySelectorAll('.tab-button').forEach(button => {
+        button.classList.remove('active');
+      });
+      document.getElementById(tabName).classList.add('active');
+      document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+      currentCategory = tabName;
+      if (dashboardData) {
+        renderThemes(tabName);
+        renderArticles(tabName);
+      }
+    }
+
+    // Actions interactivity: on click, expand/collapse description
+    function bindActionButtons(container) {
+      const acts = container.querySelectorAll('.action-label');
+      acts.forEach(btn => {
+        btn.onclick = btn.onkeyup = function(e) {
+          if (e.type === 'click' || e.key === 'Enter' || e.key === ' ') {
+            const desc = btn.parentElement.querySelector('.action-description');
+            if (desc) desc.style.display = desc.style.display === 'block' ? 'none' : 'block';
+            // Close others
+            acts.forEach(otherBtn => {
+              if (otherBtn !== btn) {
+                const d = otherBtn.parentElement.querySelector('.action-description');
+                if (d) d.style.display = 'none';
+              }
+            });
+          }
+        };
+        btn.setAttribute('tabindex', '0');
+        btn.setAttribute('role', 'button');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    // Update date/time in header and last updated in footer
+    function updateDateDisplays() {
+      const nowDiv = document.getElementById('currentDate');
+      const lastUpd = document.getElementById('lastUpdated');
+      if (nowDiv) {
+        const now = new Date();
+        nowDiv.textContent = now.toLocaleString(undefined, {
+          weekday:'long', year:'numeric', month:'long', day:'numeric',
+          hour:'2-digit', minute:'2-digit', hour12:true, timeZoneName:'short'
+        });
+      }
+      if (dashboardData && lastUpd && dashboardData.lastUpdated) {
+        const lastUpStr = formatDateTime(dashboardData.lastUpdated);
+        lastUpd.textContent = lastUpStr;
+      }
+    }
+
+    // Fetch articles.json & render all
+    async function loadDashboardData() {
+      try {
+        const resp = await fetch('https://drive.google.com/uc?export=download&id=1BlxE4hNtcyGK-G3MBeQqGdmNM6OWk5Ha');
+        dashboardData = await resp.json();
+        // Render initial load (default: technology)
+        tabOrder.forEach(tab => {
+          renderThemes(tab);
+          renderArticles(tab);
+        });
+        switchTab(currentCategory);
+        updateDateDisplays();
+      } catch (err) {
+        // Fallback error UI
+        document.querySelector('.main-content').innerHTML = '<div style="color:var(--color-error); font-weight:bold; padding:2em;">Error loading articles. Please try again later.</div>';
+      }
+    }
+
+    // On page load
+    window.addEventListener('DOMContentLoaded', loadDashboardData);
+  </script>
+</body>
+</html>
